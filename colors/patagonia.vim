@@ -17,6 +17,7 @@ let s:fg = ' ctermfg='
 let s:bg = ' ctermbg='
 let s:st = ' cterm='
 let s:no = 'none'
+
 "theme
 let s:do = 145 "snow
 let s:re = 68 "blue
@@ -39,6 +40,8 @@ let s:uin = 233
 "special
 let s:hl = 190 "yellow
 let s:mp = 46 "green
+let s:z0 = 'black'
+let s:err = 'red'
 
 " Highlight
 " ---------
@@ -64,6 +67,8 @@ exe "hi MatchParen"   .s:fg.s:mp  .s:bg.s:no  .s:st.'bold'
 "exe hi MoreMsg
 "exe hi ErrorMsg
 "exe hi WarningMsg
+exe "hi SpellBad"     .s:fg.s:no  .s:bg.s:err .s:st.s:no
+exe "hi SpellCap"     .s:fg.s:z0  .s:bg.s:fa  .s:st.s:no
 
 "syntax
 exe "hi Character"    .s:fg.s:fa  .s:bg.s:no  .s:st.s:no
