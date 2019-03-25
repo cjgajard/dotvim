@@ -59,7 +59,7 @@ exe "hi SpecialKey"   .s:fg.s:g2  .s:bg.s:no  .s:st.s:no
 exe "hi StatusLine"   .s:fg.s:uif .s:bg.s:uib .s:st.s:no
 exe "hi StatusLineNC" .s:fg.s:uin .s:bg.s:uib .s:st.s:no
 exe "hi Visual"       .s:fg.s:w   .s:bg.s:re  .s:st.s:no
-exe "hi Search"       .s:fg.s:hl  .s:bg.s:no  .s:st.'underline'
+exe "hi Search"       .s:fg.s:hl  .s:bg.s:no  .s:st.'bold'
 exe "hi MatchParen"   .s:fg.s:mp  .s:bg.s:no  .s:st.'bold'
 "exe hi TabLine
 "exe hi Question
@@ -67,8 +67,8 @@ exe "hi MatchParen"   .s:fg.s:mp  .s:bg.s:no  .s:st.'bold'
 "exe hi MoreMsg
 "exe hi ErrorMsg
 "exe hi WarningMsg
-exe "hi SpellBad"     .s:fg.s:no  .s:bg.s:err .s:st.s:no
-exe "hi SpellCap"     .s:fg.s:z0  .s:bg.s:fa  .s:st.s:no
+exe "hi SpellBad"     .s:fg.s:err .s:bg.s:no  .s:st.'bold'
+exe "hi SpellCap"     .s:fg.s:err .s:bg.s:no  .s:st.'bold'
 
 "syntax
 exe "hi Character"    .s:fg.s:fa  .s:bg.s:no  .s:st.s:no
