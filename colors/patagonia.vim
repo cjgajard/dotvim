@@ -28,7 +28,7 @@ let s:la = 221 "orange
 let s:si = 186 "green-yellow
 "gray
 let s:g2 = 244
-let s:g1 = 239
+let s:g1 = 238
 "ui
 let s:uih = 255  "ui foreground highlight
 let s:uif = s:g2 "ui foreground normal
@@ -37,7 +37,7 @@ let s:uib = s:no "ui background
 let s:vf = 231  "visual foreground
 let s:vb = s:re "visual background
 let s:err = 196 "red
-let s:hl = 190 "yellow
+let s:wrn = 191 "yellow
 let s:mp = 46  "green
 let s:z0 = 'black'
 
@@ -48,24 +48,26 @@ exe "hi Comment"      .s:fg.s:g2  .s:bg.s:no  .s:st.s:no
 exe "hi CursorColumn" .s:fg.s:no  .s:bg.s:z0  .s:st.s:no
 exe "hi CursorLine"   .s:fg.s:no  .s:bg.s:z0  .s:st.s:no
 exe "hi CursorLineNr" .s:fg.s:no  .s:bg.s:no  .s:st.'bold'
+exe "hi Error"        .s:fg.s:err .s:bg.s:no  .s:st.'reverse'
 exe "hi Folded"       .s:fg.s:g1  .s:bg.s:no  .s:st.s:no
 exe "hi FoldColumn"   .s:fg.s:g1  .s:bg.s:no  .s:st.s:no
 exe "hi LineNr"       .s:fg.s:g1  .s:bg.s:no  .s:st.s:no
 exe "hi MatchParen"   .s:fg.s:mp  .s:bg.s:no  .s:st.'bold'
 exe "hi NonText"      .s:fg.s:g1  .s:bg.s:no  .s:st.s:no
-exe "hi Search"       .s:fg.s:hl  .s:bg.s:no  .s:st.'bold'
+exe "hi Search"       .s:fg.s:uih .s:bg.s:no  .s:st.'underline'
 exe "hi SignColumn"   .s:fg.s:no  .s:bg.s:no  .s:st.s:no
 exe "hi Special"      .s:fg.s:do  .s:bg.s:no  .s:st.s:no
 exe "hi SpecialChar"  .s:fg.s:la  .s:bg.s:no  .s:st.s:no
 exe "hi SpecialKey"   .s:fg.s:g1  .s:bg.s:no  .s:st.s:no
 exe "hi SpellBad"     .s:fg.s:err .s:bg.s:no  .s:st.'bold'
 exe "hi SpellCap"     .s:fg.s:err .s:bg.s:no  .s:st.'bold'
-exe "hi StatusLine"   .s:fg.s:uih .s:bg.s:uib .s:st.s:no
+exe "hi StatusLine"   .s:fg.s:uif .s:bg.s:uib .s:st.s:no
 exe "hi StatusLineNC" .s:fg.s:uif .s:bg.s:uib .s:st.s:no
 exe "hi TabLine"      .s:fg.s:uif .s:bg.s:uib .s:st.s:no
 exe "hi TabLineFill"  .s:fg.s:uif .s:bg.s:uib .s:st.s:no
 exe "hi TabLineSel"   .s:fg.s:uih .s:bg.s:no  .s:st.s:no
 exe "hi Title"        .s:fg.s:no  .s:bg.s:no  .s:st.s:no
+exe "hi Todo"         .s:fg.s:wrn .s:bg.s:no  .s:st.'reverse'
 exe "hi VertSplit"    .s:fg.s:uif .s:bg.s:uib .s:st.s:no
 exe "hi Visual"       .s:fg.s:vf  .s:bg.s:vb  .s:st.s:no
 "exe hi Question
