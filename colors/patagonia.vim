@@ -27,48 +27,52 @@ let s:sol = 85 "teal
 let s:la = 221 "orange
 let s:si = 186 "green-yellow
 "gray
-let s:g4 = 244
-let s:g3 = 240
-let s:g2 = 236
-let s:g1 = 234
-let s:b = 16
-let s:w = 231
+let s:g2 = 244
+let s:g1 = 239
 "ui
-let s:uif = 231
-let s:uib = 66
-let s:uin = 233
+let s:uih = 255  "ui foreground highlight
+let s:uif = s:g2 "ui foreground normal
+let s:uib = s:no "ui background
 "special
+let s:vf = 231  "visual foreground
+let s:vb = s:re "visual background
+let s:err = 196 "red
 let s:hl = 190 "yellow
-let s:mp = 46 "green
+let s:mp = 46  "green
 let s:z0 = 'black'
-let s:err = 'red'
 
-" Highlight
-" ---------
+"ui
 exe "hi Normal"       .s:fg.s:si  .s:bg.s:no  .s:st.s:no
-exe "hi ColorColumn"  .s:fg.s:no  .s:bg.s:b   .s:st.s:no
-exe "hi Comment"      .s:fg.s:g4  .s:bg.s:no  .s:st.s:no
-exe "hi CursorColumn" .s:fg.s:g4  .s:bg.s:no  .s:st.s:no
-exe "hi CursorLine"   .s:fg.s:no  .s:bg.s:no  .s:st.'bold'
-exe "hi CursorLineNr" .s:fg.s:no  .s:bg.s:no  .s:st.s:no
-exe "hi VertSplit"    .s:fg.s:uin .s:bg.s:uib .s:st.s:no
-exe "hi NonText"      .s:fg.s:g2  .s:bg.s:no  .s:st.s:no
-exe "hi SignColumn"   .s:fg.s:b   .s:bg.s:uib .s:st.s:no
-exe "hi LineNr"       .s:fg.s:g2  .s:bg.s:no  .s:st.s:no
-exe "hi SpecialKey"   .s:fg.s:g2  .s:bg.s:no  .s:st.s:no
-exe "hi StatusLine"   .s:fg.s:uif .s:bg.s:uib .s:st.s:no
-exe "hi StatusLineNC" .s:fg.s:uin .s:bg.s:uib .s:st.s:no
-exe "hi Visual"       .s:fg.s:w   .s:bg.s:re  .s:st.s:no
-exe "hi Search"       .s:fg.s:hl  .s:bg.s:no  .s:st.'bold'
+exe "hi ColorColumn"  .s:fg.s:err .s:bg.s:no  .s:st.s:no
+exe "hi Comment"      .s:fg.s:g2  .s:bg.s:no  .s:st.s:no
+exe "hi CursorColumn" .s:fg.s:no  .s:bg.s:z0  .s:st.s:no
+exe "hi CursorLine"   .s:fg.s:no  .s:bg.s:z0  .s:st.s:no
+exe "hi CursorLineNr" .s:fg.s:no  .s:bg.s:no  .s:st.'bold'
+exe "hi Folded"       .s:fg.s:g1  .s:bg.s:no  .s:st.s:no
+exe "hi FoldColumn"   .s:fg.s:g1  .s:bg.s:no  .s:st.s:no
+exe "hi LineNr"       .s:fg.s:g1  .s:bg.s:no  .s:st.s:no
 exe "hi MatchParen"   .s:fg.s:mp  .s:bg.s:no  .s:st.'bold'
-"exe hi TabLine
+exe "hi NonText"      .s:fg.s:g1  .s:bg.s:no  .s:st.s:no
+exe "hi Search"       .s:fg.s:hl  .s:bg.s:no  .s:st.'bold'
+exe "hi SignColumn"   .s:fg.s:no  .s:bg.s:no  .s:st.s:no
+exe "hi Special"      .s:fg.s:do  .s:bg.s:no  .s:st.s:no
+exe "hi SpecialChar"  .s:fg.s:la  .s:bg.s:no  .s:st.s:no
+exe "hi SpecialKey"   .s:fg.s:g1  .s:bg.s:no  .s:st.s:no
+exe "hi SpellBad"     .s:fg.s:err .s:bg.s:no  .s:st.'bold'
+exe "hi SpellCap"     .s:fg.s:err .s:bg.s:no  .s:st.'bold'
+exe "hi StatusLine"   .s:fg.s:uih .s:bg.s:uib .s:st.s:no
+exe "hi StatusLineNC" .s:fg.s:uif .s:bg.s:uib .s:st.s:no
+exe "hi TabLine"      .s:fg.s:uif .s:bg.s:uib .s:st.s:no
+exe "hi TabLineFill"  .s:fg.s:uif .s:bg.s:uib .s:st.s:no
+exe "hi TabLineSel"   .s:fg.s:uih .s:bg.s:no  .s:st.s:no
+exe "hi Title"        .s:fg.s:no  .s:bg.s:no  .s:st.s:no
+exe "hi VertSplit"    .s:fg.s:uif .s:bg.s:uib .s:st.s:no
+exe "hi Visual"       .s:fg.s:vf  .s:bg.s:vb  .s:st.s:no
 "exe hi Question
 "exe hi ModeMsg
 "exe hi MoreMsg
 "exe hi ErrorMsg
 "exe hi WarningMsg
-exe "hi SpellBad"     .s:fg.s:err .s:bg.s:no  .s:st.'bold'
-exe "hi SpellCap"     .s:fg.s:err .s:bg.s:no  .s:st.'bold'
 
 "syntax
 exe "hi Character"    .s:fg.s:fa  .s:bg.s:no  .s:st.s:no
@@ -77,8 +81,8 @@ exe "hi Function"     .s:fg.s:re  .s:bg.s:no  .s:st.s:no
 exe "hi Identifier"   .s:fg.s:la  .s:bg.s:no  .s:st.s:no
 exe "hi Include"      .s:fg.s:mi  .s:bg.s:no  .s:st.s:no
 exe "hi Operator"     .s:fg.s:sol .s:bg.s:no  .s:st.s:no
+exe "hi Macro"        .s:fg.s:do  .s:bg.s:no  .s:st.s:no
 exe "hi PreProc"      .s:fg.s:fa  .s:bg.s:no  .s:st.s:no
-exe "hi Special"      .s:fg.s:sol .s:bg.s:no  .s:st.s:no
 exe "hi Statement"    .s:fg.s:mi  .s:bg.s:no  .s:st.s:no
 exe "hi StorageClass" .s:fg.s:mi  .s:bg.s:no  .s:st.s:no
 exe "hi String"       .s:fg.s:fa  .s:bg.s:no  .s:st.s:no
