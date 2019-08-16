@@ -38,7 +38,7 @@ let s:vf = 231  "visual foreground
 let s:vb = s:re "visual background
 let s:err = 196 "red
 let s:wrn = 191 "yellow
-let s:mp = 46  "green
+let s:mp = 46   "green
 let s:z0 = 'black'
 
 "ui
@@ -54,7 +54,7 @@ exe "hi FoldColumn"   .s:fg.s:g1  .s:bg.s:no  .s:st.s:no
 exe "hi LineNr"       .s:fg.s:g1  .s:bg.s:no  .s:st.s:no
 exe "hi MatchParen"   .s:fg.s:mp  .s:bg.s:no  .s:st.'bold'
 exe "hi NonText"      .s:fg.s:g1  .s:bg.s:no  .s:st.s:no
-exe "hi Search"       .s:fg.s:uih .s:bg.s:no  .s:st.'underline'
+exe "hi Search"       .s:fg.s:no  .s:bg.s:no  .s:st.'bold,underline'
 exe "hi SignColumn"   .s:fg.s:no  .s:bg.s:no  .s:st.s:no
 exe "hi Special"      .s:fg.s:do  .s:bg.s:no  .s:st.s:no
 exe "hi SpecialChar"  .s:fg.s:la  .s:bg.s:no  .s:st.s:no
@@ -91,7 +91,7 @@ exe "hi String"       .s:fg.s:fa  .s:bg.s:no  .s:st.s:no
 exe "hi Type"         .s:fg.s:sol .s:bg.s:no  .s:st.s:no
 
 "js
-exe "hi jsClassDefinition" .s:fg.s:la  .s:bg.s:no  .s:st.'bold,underline'
+exe "hi jsClassDefinition" .s:fg.s:la  .s:bg.s:no  .s:st.'bold'
 exe "hi jsFuncName"        .s:fg.s:re  .s:bg.s:no  .s:st.s:no
 exe "hi jsFuncCall"        .s:fg.s:re  .s:bg.s:no  .s:st.s:no
 exe "hi jsModuleKeyword"   .s:fg.s:sol .s:bg.s:no  .s:st.s:no
