@@ -71,6 +71,8 @@ elseif &t_Co == 256
   let s:wrn = 191
   let s:mp = 46
   let s:z0 = 'black'
+  let s:nf = s:si
+  let s:nb = s:no
 elseif &t_Co >= 16
   "helpers
   let s:fg = ' ctermfg='
@@ -100,12 +102,14 @@ elseif &t_Co >= 16
   let s:wrn = 3
   let s:mp = 2
   let s:z0 = 0
+  let s:nf = s:si
+  let s:nb = 0
 else
   "TODO 8 colors
 endif
 
 "ui
-exe "hi Normal"       .s:fg.s:si  .s:bg.s:no  .s:st.s:no
+exe "hi Normal"       .s:fg.s:nf  .s:bg.s:nb  .s:st.s:no
 exe "hi ColorColumn"  .s:fg.s:err .s:bg.s:no  .s:st.s:no
 exe "hi Comment"      .s:fg.s:g2  .s:bg.s:no  .s:st.s:no
 exe "hi CursorColumn" .s:fg.s:no  .s:bg.s:z0  .s:st.s:no
