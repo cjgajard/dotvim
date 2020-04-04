@@ -11,6 +11,14 @@ if exists("syntax_on")
 endif
 let g:colors_name = "patagonia"
 
+if !exists("g:patagonia_reverse_support")
+  let g:patagonia_reverse_support = 1
+endif
+
+if !exists("g:patagonia_underline_support")
+  let g:patagonia_underline_support = 1
+endif
+
 if has("gui_running")
   "helpers
   let s:fg = ' guifg='
@@ -73,39 +81,40 @@ elseif &t_Co == 256
   let s:z0 = 'black'
   let s:nf = s:si
   let s:nb = s:no
-elseif &t_Co >= 16
+"elseif &t_Co >= 16 "TODO 16 colors
+else
   "helpers
   let s:fg = ' ctermfg='
   let s:bg = ' ctermbg='
   let s:st = ' cterm='
   let s:no = 'none'
   "theme
-  let s:do = 14
-  let s:re = 4
-  let s:mi = 5
-  let s:fa = 12
-  let s:sol = 6
-  let s:la = 3
-  let s:si = 11
-  let s:str = 10 "NOTE: 9, 10 and 13 are unassigned
+  let s:do = 'Cyan'
+  let s:re = 'DarkBlue'
+  let s:mi = 'DarkMagenta'
+  let s:fa = 'Blue'
+  let s:sol = 'DarkCyan'
+  let s:la = 'DarkYellow'
+  let s:si = 'Yellow' "NOTE: Red, Green and Magenta are unassigned
   "gray
-  let s:g2 = 7
-  let s:g1 = 8
+  let s:g2 = 'Gray'
+  let s:g1 = 'DarkGrey'
   "ui
-  let s:uih = 15
+  let s:uih = 'White'
   let s:uif = s:g2
   let s:uib = s:no
   "special
-  let s:vf = 7
+  let s:vf = 'White'
   let s:vb = s:re
-  let s:err = 1
-  let s:wrn = 3
-  let s:mp = 2
-  let s:z0 = 0
+  let s:err = 'DarkRed'
+  let s:wrn = 'DarkYellow'
+  let s:mp = 'DarkGreen'
+  let s:z0 = 'Black'
   let s:nf = s:si
-  let s:nb = 0
-else
-  "TODO 8 colors
+  let s:nb = 'Black'
+
+  let g:patagonia_reverse_support = 0
+  let g:patagonia_underline_support = 0
 endif
 
 "ui
@@ -115,13 +124,21 @@ exe "hi Comment"      .s:fg.s:g2  .s:bg.s:no  .s:st.s:no
 exe "hi CursorColumn" .s:fg.s:no  .s:bg.s:z0  .s:st.s:no
 exe "hi CursorLine"   .s:fg.s:no  .s:bg.s:z0  .s:st.s:no
 exe "hi CursorLineNr" .s:fg.s:no  .s:bg.s:no  .s:st.'bold'
-exe "hi Error"        .s:fg.s:err .s:bg.s:no  .s:st.'reverse'
+if g:patagonia_reverse_support
+  exe "hi Error"      .s:fg.s:err .s:bg.s:no  .s:st.'reverse'
+else
+  exe "hi Error"      .s:fg.s:z0  .s:bg.s:err .s:st.s:no
+endif
 exe "hi Folded"       .s:fg.s:g1  .s:bg.s:no  .s:st.s:no
 exe "hi FoldColumn"   .s:fg.s:g1  .s:bg.s:no  .s:st.s:no
 exe "hi LineNr"       .s:fg.s:g1  .s:bg.s:no  .s:st.s:no
 exe "hi MatchParen"   .s:fg.s:mp  .s:bg.s:no  .s:st.'bold'
 exe "hi NonText"      .s:fg.s:g1  .s:bg.s:no  .s:st.s:no
-exe "hi Search"       .s:fg.s:no  .s:bg.s:no  .s:st.'bold,underline'
+if g:patagonia_underline_support
+  exe "hi Search"     .s:fg.s:no  .s:bg.s:no  .s:st.'bold,underline'
+else
+  exe "hi Search"     .s:fg.s:vf  .s:bg.s:no  .s:st.s:no
+endif
 exe "hi SignColumn"   .s:fg.s:no  .s:bg.s:no  .s:st.s:no
 exe "hi Special"      .s:fg.s:do  .s:bg.s:no  .s:st.s:no
 exe "hi SpecialChar"  .s:fg.s:la  .s:bg.s:no  .s:st.s:no
@@ -134,7 +151,11 @@ exe "hi TabLine"      .s:fg.s:uif .s:bg.s:uib .s:st.s:no
 exe "hi TabLineFill"  .s:fg.s:uif .s:bg.s:uib .s:st.s:no
 exe "hi TabLineSel"   .s:fg.s:uih .s:bg.s:no  .s:st.s:no
 exe "hi Title"        .s:fg.s:no  .s:bg.s:no  .s:st.s:no
-exe "hi Todo"         .s:fg.s:wrn .s:bg.s:no  .s:st.'reverse'
+if g:patagonia_reverse_support
+  exe "hi Todo"       .s:fg.s:wrn .s:bg.s:no  .s:st.'reverse'
+else
+  exe "hi Todo"       .s:fg.s:z0  .s:bg.s:wrn .s:st.s:no
+endif
 exe "hi VertSplit"    .s:fg.s:uif .s:bg.s:uib .s:st.s:no
 exe "hi Visual"       .s:fg.s:vf  .s:bg.s:vb  .s:st.s:no
 "exe hi Question
@@ -154,7 +175,7 @@ exe "hi Macro"        .s:fg.s:do  .s:bg.s:no  .s:st.s:no
 exe "hi PreProc"      .s:fg.s:fa  .s:bg.s:no  .s:st.s:no
 exe "hi Statement"    .s:fg.s:mi  .s:bg.s:no  .s:st.s:no
 exe "hi StorageClass" .s:fg.s:mi  .s:bg.s:no  .s:st.s:no
-exe "hi String"       .s:fg.s:str .s:bg.s:no  .s:st.s:no
+exe "hi String"       .s:fg.s:sol .s:bg.s:no  .s:st.s:no
 exe "hi Type"         .s:fg.s:sol .s:bg.s:no  .s:st.s:no
 
 "js

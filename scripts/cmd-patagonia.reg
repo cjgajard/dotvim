@@ -1,19 +1,19 @@
 Windows Registry Editor Version 5.00
 
 [HKEY_CURRENT_USER\Console]
-"ColorTable00"=dword:00291315 ; black
-"ColorTable01"=dword:000000ff ; red
-"ColorTable02"=dword:0000ff00 ; green
-"ColorTable03"=dword:005fd7ff ; yellow
-"ColorTable04"=dword:00d7875f ; blue
-"ColorTable05"=dword:00d787af ; magenta
-"ColorTable06"=dword:00afd75f ; cyan
-"ColorTable07"=dword:00808080 ; white
-"ColorTable08"=dword:00444444 ;
-"ColorTable09"=dword:005f87ff ;
-"ColorTable10"=dword:0087ff5f ;
-"ColorTable11"=dword:0087d7d7 ;
-"ColorTable12"=dword:00ffd787 ;
-"ColorTable13"=dword:00d7afff ;
-"ColorTable14"=dword:00afafaf ;
-"ColorTable15"=dword:00ffffff ;
+"ColorTable00"=dword:00291315 ; Black
+"ColorTable01"=dword:00d7875f ; DarkBlue
+"ColorTable02"=dword:0000ff00 ; DarkGreen
+"ColorTable03"=dword:00afd75f ; DarkCyan
+"ColorTable04"=dword:000000ff ; DarkRed
+"ColorTable05"=dword:00d787af ; DarkMagenta
+"ColorTable06"=dword:005fd7ff ; DarkYellow
+"ColorTable07"=dword:00808080 ; LightGray
+"ColorTable08"=dword:00444444 ; DarkGray
+"ColorTable09"=dword:00ffd787 ; Blue
+"ColorTable10"=dword:0087ff5f ; Green
+"ColorTable11"=dword:00afafaf ; Cyan
+"ColorTable12"=dword:005f87ff ; Red
+"ColorTable13"=dword:00d7afff ; Magenta
+"ColorTable14"=dword:0087d7d7 ; Yellow
+"ColorTable15"=dword:00ffffff ; White
