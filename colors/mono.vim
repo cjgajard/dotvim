@@ -11,21 +11,27 @@ hi clear
 if exists("syntax_on")
     syntax reset
 endif
-let g:colors_name="monored"
-let g:f="monored fff asdl;fkjasdfkl; ajsl;dfj l;askdfj l;asdl;kf jaslk;dfsdal;sfjkas"
+let g:colors_name="mono"
 
-hi Normal       ctermfg=white    ctermbg=none    cterm=none
-hi Comment      ctermfg=darkgray ctermbg=none    cterm=none
-hi ColorColumn  ctermfg=darkgray ctermbg=black   cterm=reverse
-hi Error        ctermfg=red      ctermbg=white   cterm=reverse
-hi Search       ctermfg=white    ctermbg=none    cterm=reverse
-hi StatusLine   ctermfg=none     ctermbg=none    cterm=reverse
-hi StatusLineNC ctermfg=none     ctermbg=none    cterm=none
-hi Visual       ctermfg=white    ctermbg=darkred cterm=none
+let s:hi = 'Red'
+let s:lo = 'DarkRed'
+if exists('colors_fg') && colors_fg >= 0 && colors_fg < 8
+  let s:lo = colors_fg
+  let s:hi = s:lo + 8
+endif
 
-hi Statement    ctermfg=red      ctermbg=none    cterm=none
-hi Type         ctermfg=gray     ctermbg=none    cterm=none
-hi Constant     ctermfg=darkred  ctermbg=none    cterm=none
+hi Normal       ctermfg=none     ctermbg=none     cterm=none
+hi Comment      ctermfg=DarkGray ctermbg=none     cterm=none
+hi ColorColumn  ctermfg=DarkGray ctermbg=Black    cterm=reverse
+hi Error        ctermfg=DarkRed  ctermbg=White    cterm=reverse
+hi Search       ctermfg=White    ctermbg=none     cterm=reverse
+hi StatusLine   ctermfg=none     ctermbg=none     cterm=reverse
+hi StatusLineNC ctermfg=none     ctermbg=none     cterm=none
+exe 'hi Visual  ctermfg=White       ctermbg='.s:lo.' cterm=none'
+
+exe 'hi Statement ctermfg='.s:hi.' ctermbg=none cterm=none'
+hi Type           ctermfg=gray     ctermbg=none cterm=none
+exe 'hi Constant  ctermfg='.s:lo.' ctermbg=none cterm=none'
 
 hi! link Delimiter    Normal
 hi! link LineNr       Comment

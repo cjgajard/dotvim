@@ -109,7 +109,9 @@ else
 endif
 
 "ui
-exe "hi Normal"       .s:fg.s:nf  .s:bg.s:nb  .s:st.s:no
+if get(g:, 'colors_bg_solid', 0)
+  exe "hi Normal"     .s:fg.s:nf  .s:bg.s:nb  .s:st.s:no | else
+  exe "hi Normal"     .s:fg.s:nf  .s:bg.s:no  .s:st.s:no | endif
 exe "hi ColorColumn"  .s:fg.s:err .s:bg.s:no  .s:st.s:no
 exe "hi Comment"      .s:fg.s:g2  .s:bg.s:no  .s:st.s:no
 exe "hi CursorColumn" .s:fg.s:no  .s:bg.s:z0  .s:st.s:no

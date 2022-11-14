@@ -10,7 +10,8 @@ if exists('syntax_on')
 endif
 let g:colors_name='turboc'
 
-let s:fg = 255
+if &t_Co == 256
+let s:fg = 231
 let s:bg = 18
 let s:hi = 226
 let s:lo = 37
@@ -18,10 +19,25 @@ let s:c1 = 46
 let s:c2 = 214
 let s:c3 = 250
 let s:vi = 21
+let s:ui = 240
 let s:er = 196
+else
+let s:fg = 15
+let s:bg = 0
+let s:hi = 3
+let s:lo = 6
+let s:c1 = 2
+let s:c2 = 5
+let s:c3 = 7
+let s:vi = 4
+let s:ui = 8
+let s:er = 1
+endif
 
-exec 'hi Normal       ctermfg='.s:fg.' ctermbg='.s:bg.' cterm=none'
-exec 'hi ColorColumn  ctermfg='.s:fg.' ctermbg='.s:vi.' cterm=reverse'
+if get(g:, 'colors_bg_solid', 0)
+  exec 'hi Normal     ctermfg='.s:fg.' ctermbg='.s:bg.' cterm=none' | else
+  exec 'hi Normal     ctermfg='.s:fg.' ctermbg=none     cterm=none' | endif
+exec 'hi ColorColumn  ctermfg='.s:fg.' ctermbg='.s:ui.' cterm=none'
 exec 'hi Error        ctermfg='.s:fg.' ctermbg='.s:er.' cterm=none'
 exec 'hi MatchParen   ctermfg='.s:fg.' ctermbg=none     cterm=bold'
 exec 'hi Pmenu        ctermfg='.s:bg.' ctermbg='.s:lo.' cterm=none'
@@ -43,8 +59,8 @@ hi! link LineNrAbove  LineNr
 hi! link LineNrBelow  LineNr
 hi! link SignColumn   LineNr
 
-exec 'hi StatusLine   ctermfg='.s:fg.' ctermbg='.s:bg.' cterm=bold'
-exec 'hi StatusLineNC ctermfg='.s:fg.' ctermbg='.s:bg.' cterm=none'
+exec 'hi StatusLine   ctermfg='.s:fg.' ctermbg=none     cterm=none'
+exec 'hi StatusLineNC ctermfg='.s:fg.' ctermbg=none     cterm=none'
 exec 'hi TabLineFill  ctermfg='.s:bg.' ctermbg='.s:lo.' cterm=none'
 hi! link TabLine      TabLineFill
 hi! link TabLineSel   StatusLine

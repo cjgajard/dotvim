@@ -27,8 +27,8 @@ else
   let s:x0 = 0
   let s:x1 = 15
   let s:x2 = 7
-  let s:x3 = 6
-  let s:x4 = 8
+  let s:x3 = 2
+  let s:x4 = 'none'
   let s:x5 = 14
   let s:x6 = 5
   let s:x7 = 13
@@ -42,7 +42,7 @@ exe 'hi Comment      ctermfg='.s:x2.' ctermbg=none     cterm=none'
 exe 'hi Error        ctermfg='.s:x1.' ctermbg='.s:x2.' cterm=none'
 exe 'hi Search       ctermfg='.s:x1.' ctermbg='.s:x0.' cterm=reverse'
 exe 'hi Visual       ctermfg='.s:x1.' ctermbg='.s:xa.' cterm=none'
-exe 'hi StatusLine   ctermfg='.s:x3.' ctermbg='.s:x4.' cterm=bold'
+exe 'hi StatusLine   ctermfg='.s:x3.' ctermbg='.s:x4.' cterm=none'
 exe 'hi StatusLineNC ctermfg='.s:x3.' ctermbg='.s:x4.' cterm=none'
 
 exe 'hi TabLineSel   ctermfg='.s:x1.' ctermbg=none     cterm=bold'

@@ -33,8 +33,9 @@ let s:xb = {'gui':'#ffebee', 'xterm':225, 'term':'White'}
 
 let s:xc = {'gui':'#ffea80', 'xterm':228, 'term':'Yellow'}
 "let s:xd
-"let s:xe
+let s:xe = {'gui':'#ff0000', 'xterm':196, 'term':'DarkRed'}
 "let s:xf
+let s:xn = {'gui':s:x0.gui, 'xterm':'none', 'term':'none'}
 
 if &background ==# 'light'
 " LIGHT THEME
@@ -52,6 +53,8 @@ let s:sf = s:x0
 let s:vb = s:xc
 let s:vf = 0
 let s:ui = s:xa
+let s:ef = s:x3
+let s:eb = s:xe
 else
 " DARK THEME
 " ----------
@@ -68,6 +71,8 @@ let s:sf = s:x0
 let s:vb = s:xc
 let s:vf = s:x2
 let s:ui = s:xa
+let s:ef = s:x3
+let s:eb = s:xe
 endif
 
 " SETUP
@@ -91,8 +96,9 @@ endfun
 
 " HIGHLIGHT
 " ---------
-call <SID>h('Normal', s:nf, {'bg':s:nb})
+call <SID>h('Normal', s:nf, get(g:, 'colors_bg_solid', 0) ? {'bg':s:nb} : {})
 call <SID>h('Search', s:sf, {'bg':s:sb})
+call <SID>h('Error', s:x3, {'bg':s:xe})
 
 call <SID>h('Visual', s:vf, {'bg':s:vb})
 hi! link ColorColumn Visual
