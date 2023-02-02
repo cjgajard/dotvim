@@ -54,6 +54,9 @@ exe 'hi Macro        ctermfg='.s:x7.' ctermbg=none     cterm=none'
 exe 'hi Statement    ctermfg='.s:x8.' ctermbg=none     cterm=none'
 exe 'hi String       ctermfg='.s:x9.' ctermbg=none     cterm=none'
 
+hi Pmenu       ctermfg=6 ctermbg=16 cterm=none
+hi PmenuSel    ctermfg=6 ctermbg=16 cterm=reverse
+
 hi! link VertSplit   StatuslineNC
 hi! link TabLineFill StatusLineNC
 

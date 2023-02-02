@@ -96,7 +96,7 @@ elseif &t_Co >= 16
   let s:uif = s:g2
   let s:uib = s:no
   "special
-  let s:vf = 7
+  let s:vf = 15
   let s:vb = s:re
   let s:err = 1
   let s:wrn = 3

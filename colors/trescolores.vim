@@ -22,9 +22,9 @@ if &background == 'dark'
     hi StatusLineNC ctermfg=White ctermbg=none     cterm=none
     hi Visual       ctermfg=White ctermbg=DarkBlue cterm=none
 
-    hi Constant  ctermfg=DarkGreen ctermbg=none
-    hi Type      ctermfg=DarkCyan    ctermbg=none
-    hi Statement ctermfg=DarkYellow  ctermbg=none
+    hi Constant  ctermfg=DarkYellow  ctermbg=none
+    hi Type      ctermfg=DarkMagenta ctermbg=none
+    hi Statement ctermfg=DarkGreen   ctermbg=none
 else
     hi Normal      ctermfg=0     ctermbg=15
     hi ColorColumn ctermfg=7     ctermbg=none     cterm=reverse
